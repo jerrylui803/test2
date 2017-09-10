@@ -42,10 +42,9 @@ public class MergeSort {
 		for (int i = unsorted.size() / 2; i < unsorted.size(); i++) {
 			right.add(unsorted.get(i));
 		}
-		
-		// The following 2 lines were modified because the results were not assigned appropriately
-		left = msort(left);
-		right = msort(right);
+
+		msort(left);
+		msort(right);
 
 		return merge(left,right);
 	}
@@ -60,25 +59,19 @@ public class MergeSort {
 	public static List<Integer> merge(List<Integer> left, List<Integer> right) { 
 
 		List<Integer> fin = new ArrayList<Integer>();
-		// pointers, Note: fp is useless
+		// pointers
 		int lp = 0, rp = 0, fp = 0;
-		//The following line was modified
-		//while (either of the two list is not done)
-		while (lp < left.size() || rp < right.size()) { 
-			
-			//The following line was modified
-			// if ((right is out of bound) OR (left is in range and left is smaller than right))
-			if ((rp >= right.size()) || (lp < left.size() && left.get(lp) < right.get(rp))) {
+
+		while (lp < left.size() && rp < right.size()) { 
+			if (left.get(lp) < right.get(rp)) {
 				fin.add(left.get(lp));  
 				lp++;
-			// else ((left is out of bound) OR (right is in range and right is smaller than left))
 			} else {
 				fin.add(right.get(rp));  
 				rp++;        
 			}
 			fp++;
-		}
-		//System.out.println("Fin is       " + fin);
+		}   
 		return fin;
 	}       
 }
