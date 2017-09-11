@@ -1,4 +1,4 @@
-package mergesort;
+
 
 import java.util.List;
 import java.util.ArrayList;
@@ -78,7 +78,6 @@ public class MergeSort {
 			}
 			fp++;
 		}
-		//System.out.println("Fin is       " + fin);
 		return fin;
 	}       
 }
