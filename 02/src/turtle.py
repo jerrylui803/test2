@@ -44,10 +44,10 @@ class TurtleIterator:
         return self
 
     def next(self):
-        next_turtle = self._curr_turtle.stands_on()
-        if next_turtle:
-            self._curr_turtle = next_turtle
-            return next_turtle
+        curr_turtle = self._curr_turtle
+        if curr_turtle:
+            self._curr_turtle = curr_turtle.stands_on()
+            return curr_turtle
         else:
             raise StopIteration
 
