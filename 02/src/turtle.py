@@ -24,8 +24,22 @@ class Turtle:
     def all_the_way_down(self):
         return TurtlesAllTheWayDownIterator(self)
 
-    def __cmp__(self, other_turtle):
-        return cmp(self._name, other_turtle._name)
+    def _comparison(self, other_turtle):
+        a = self._name
+        b = other_turtle._name
+        return (a > b) - (a < b)
+    def __eq__(self, other_turtle):
+        return self._comparison(other_turtle) == 0
+    def __ne__(self, other_turtle):
+        return self._comparison(other_turtle) != 0
+    def __gt__(self, other_turtle):
+        return self._comparison(other_turtle) > 0
+    def __ge__(self, other_turtle):
+        return self._comparison(other_turtle) >= 0
+    def __lt__(self, other_turtle):
+        return self._comparison(other_turtle) < 0
+    def __le__(self, other_turtle):
+        return self._comparison(other_turtle) <= 0
 
     def __iter__(self):
         return TurtleIterator(self)
@@ -61,7 +75,7 @@ class TurtlesAllTheWayDownIterator:
     def __iter__(self):
         return self
 
-    def next(self):
+    def __next__(self):
         try:
             return self._iter.next()
         except StopIteration:
@@ -77,19 +91,19 @@ if __name__ == '__main__':
     mr1 = Turtle('Mr.Turtle')
     mr2 = Turtle('Mr.Turtle')
     ms = Turtle('Ms.Turtle')
-    print mr1 < ms
-    print mr1 == mr2
-
+    print (mr1 < ms)
+    print (mr1 == mr2)
+    
     # iteration
     turtle = Turtle('T0', Turtle('T1', Turtle('T2')))
-    print turtle
+    print (turtle)
     for t in turtle:
-        print t, 'on',
-    print 'what?'
+        print (t, 'on',)
+    print ('what?')
 
     # super iteration
     turtle = Turtle('T0', Turtle('T1', Turtle('T2')))
-    print turtle
+    print (turtle)
     for t in turtle.all_the_way_down():
-        print t, 'on',
-    print 'what?'
+        print (t, 'on',)
+    print ('what?')
