@@ -57,7 +57,7 @@ class TurtleIterator:
     def __iter__(self):
         return self
 
-    def next(self):
+    def __next__(self):
         next_turtle = self._curr_turtle.stands_on()
         if next_turtle:
             self._curr_turtle = next_turtle
@@ -77,7 +77,7 @@ class TurtlesAllTheWayDownIterator:
 
     def __next__(self):
         try:
-            return self._iter.next()
+            return next(self._iter)
         except StopIteration:
             return Turtle("Another Turtle")
 
