@@ -28,6 +28,7 @@ class Turtle:
         a = self._name
         b = other_turtle._name
         return (a > b) - (a < b)
+
     def __eq__(self, other_turtle):
         return self._comparison(other_turtle) == 0
     def __ne__(self, other_turtle):
@@ -98,12 +99,12 @@ if __name__ == '__main__':
     turtle = Turtle('T0', Turtle('T1', Turtle('T2')))
     print (turtle)
     for t in turtle:
-        print (t, 'on',)
+        print(t, 'on', end=' ')
     print ('what?')
 
     # super iteration
     turtle = Turtle('T0', Turtle('T1', Turtle('T2')))
     print (turtle)
     for t in turtle.all_the_way_down():
-        print (t, 'on',)
+        print(t, 'on', end=' ')
     print ('what?')
