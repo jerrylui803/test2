@@ -13,13 +13,13 @@ public class Main {
     Shopper alice = new Shopper("Alice");
     Shopper bob = new Shopper("Bob");
 
-    banana.addObserver(bob);
+    banana.addObserver(bob); //bob buys a banana?
     cereal.addObserver(bob);
     cereal.addObserver(alice);
 
     banana.changePrice(0.55);
-    cereal.changePrice(10 / 3.0);
-    cereal.changePrice(15.42);    
+    //cereal.changePrice(10 / 3.0);
+    //cereal.changePrice(15.42);    
     
   }
 }

@@ -1,8 +1,10 @@
 package ca.utoronto.utsc.designpatterns.observer;
 
 import java.util.Date;
-import java.util.Observable;
-import java.util.Observer;
+//import java.util.Observable;
+//import java.util.Observer;
+import ca.utoronto.utsc.designpatterns.observer.Observable;
+import ca.utoronto.utsc.designpatterns.observer.Observer;
 
 public class Shopper implements Observer {
 
