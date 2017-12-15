@@ -2,7 +2,6 @@ package ca.utoronto.utsc.designpatterns.observer;
 
 //import java.util.Observable;
 import ca.utoronto.utsc.designpatterns.observer.Observable;
-import ca.utoronto.utsc.designpatterns.observer.Observer;
 
 /** A product **/
 public class Product extends Observable {

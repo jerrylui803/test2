@@ -18,7 +18,7 @@ public class GpaCalculatorTest {
 	@Test
 	public void testCgpaLetter() {
 
-		Grade grade1;
+		Grade grade1; // this cannot set to mock grade, because gpacalculator only works with grade
 		Grade grade2;
 		Grade grade3;
 		try {
@@ -53,7 +53,7 @@ public class GpaCalculatorTest {
 			grade3 = new MockNumericGrade(83);
 		} catch (InvalidGradeException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 			fail("Unexpected Exception");
 			return;
 		}
@@ -113,7 +113,7 @@ public class GpaCalculatorTest {
 			fail("did not throw invalid grade exception");
 		} catch (InvalidGradeException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 			return;
 			
 		}
