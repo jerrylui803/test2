@@ -2,7 +2,7 @@ package ca.utoronto.utsc.designpatterns.composite;
 
 import java.util.ArrayList;
 
-public class Leaf<T> implements TreeComponent{
+public class Leaf<T> implements TreeComponent<T>{
 	
 
 	@Override
