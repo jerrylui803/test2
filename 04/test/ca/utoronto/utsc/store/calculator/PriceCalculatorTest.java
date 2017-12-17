@@ -36,7 +36,7 @@ public class PriceCalculatorTest {
 		
 
 	    
-	    Discount cd = new ConstantDiscount(5);
+	    Discount cd = new MockConstantDiscount(5);
 	    
 	    PriceCalculator pc1 = new PriceCalculator(cd);
 	    

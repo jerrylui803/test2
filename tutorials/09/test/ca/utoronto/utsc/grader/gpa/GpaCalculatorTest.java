@@ -22,9 +22,9 @@ public class GpaCalculatorTest {
 		Grade grade2;
 		Grade grade3;
 		try {
-			grade1 = new MockLetterGrade("A");
-			grade2 = new MockLetterGrade("A-");
-			grade3 = new MockLetterGrade("C");
+			grade1 = new MockLetterGrade("C+"); // doesnt have to be C+
+			grade2 = new MockLetterGrade2("A-");
+			grade3 = new MockLetterGrade("C+");
 		} catch (InvalidGradeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,7 +36,7 @@ public class GpaCalculatorTest {
 
 		double cgpa = GpaCalculator.cgpa(mylist);
 
-		assertEquals(cgpa, 3.2333,0.01);
+		assertEquals(cgpa, 2.766,0.01);
 	}
 	
 	
@@ -44,16 +44,16 @@ public class GpaCalculatorTest {
 	@Test
 	public void testCgpaNumerical() {
 
-		Grade grade1;
+		Grade grade1; // this cannot set to mock grade, because gpacalculator only works with grade
 		Grade grade2;
 		Grade grade3;
 		try {
-			grade1 = new MockNumericGrade(90);
-			grade2 = new MockNumericGrade(78);
-			grade3 = new MockNumericGrade(83);
+			grade1 = new MockNumericGrade(12); 
+			grade2 = new MockNumericGrade2(89);
+			grade3 = new MockNumericGrade(1234565432);
 		} catch (InvalidGradeException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
 			fail("Unexpected Exception");
 			return;
 		}
@@ -61,8 +61,9 @@ public class GpaCalculatorTest {
 		List<Grade> mylist = Arrays.asList(grade1, grade2, grade3);
 
 		double cgpa = GpaCalculator.cgpa(mylist);
-		//System.out.println(cgpa);
-		assertEquals(cgpa, 3.66,0.01);
+		
+		//(2.7+3.3+2.7)/3= 2.9
+		assertEquals(cgpa, 2.9, 0.01);
 	}
 	
 	
@@ -78,12 +79,12 @@ public class GpaCalculatorTest {
 		Grade grade5;
 		Grade grade6;
 		try {
-			grade1 = new MockLetterGrade("A");
-			grade2 = new MockLetterGrade("A-");
-			grade3 = new MockLetterGrade("C");
-			grade4 = new MockNumericGrade(90);
-			grade5 = new MockNumericGrade(78);
-			grade6 = new MockNumericGrade(83);
+			grade1 = new MockLetterGrade("C+"); // doesnt have to be C+
+			grade2 = new MockLetterGrade2("A-");
+			grade3 = new MockLetterGrade("C+");
+			grade4 = new MockNumericGrade(12); 
+			grade5 = new MockNumericGrade2(89);
+			grade6 = new MockNumericGrade(1234565432);
 		} catch (InvalidGradeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -95,7 +96,7 @@ public class GpaCalculatorTest {
 
 		double cgpa = GpaCalculator.cgpa(mylist);
 		//System.out.println(cgpa);
-		assertEquals(cgpa, 3.45,0.01);
+		assertEquals(cgpa, 2.833,0.01);
 
 	}
 	
